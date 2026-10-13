@@ -1,0 +1,230 @@
+/*
+ * SOFT SAGE / SLATE THEME
+ * Gentle, low-glare surfaces with accessible slate text and quiet teal accents.
+ * Kept separate from style.css so the visual palette can be changed in one place.
+ */
+:root {
+  color-scheme: light;
+  --ink: #263d40;
+  --muted: #50696b;
+  --soft: #627a78;
+  --blue: #326d7b;
+  --blue-dark: #245564;
+  --teal: #347b71;
+  --teal-deep: #285f59;
+  --line: #cedbd5;
+  --surface: #f1f5f0;
+  --canvas: #e5ede7;
+  --pale: #deeae4;
+  --shadow: 0 12px 35px rgba(31, 67, 61, .06);
+  --surface-raised: #f1f5f0;
+  --surface-alt: #e6eee9;
+  --surface-deep: #dce8e1;
+  --stroke: #cfdbd4;
+  --accent-wash: #dbeae5;
+  --quiet-ink: #567070;
+}
+html { background-color: var(--canvas); }
+body {
+  background: linear-gradient(145deg, #e7eee9 0%, #e3ebe6 50%, #e7ede7 100%);
+  color: var(--ink);
+}
+::selection { background: #bdd9d1; color: #1c4547; }
+a { color: var(--blue); }
+a:hover { color: var(--blue-dark); }
+button:focus-visible, a:focus-visible, summary:focus-visible {
+  outline-color: #3c8a88;
+}
+.skip-link { background: var(--surface-raised); }
+/* The header stays quiet instead of a bright band. */
+.site-header {
+  background: rgba(227, 236, 230, .94);
+  border-bottom-color: #c8d7cf;
+}
+.site-brand, .hero-headline { color: #253a3e; }
+.site-links > a, .site-links .header-home { color: #466567; }
+.site-links > a:hover, .site-links .header-home:hover { color: var(--blue-dark); }
+.reading-progress { background: linear-gradient(90deg, #4a8490, #72a18c); }
+.hero-deck { color: #526a70; }
+.hero-intro, .section-lead, .prose, .analysis-text p { color: #4d6566; }
+.hero-intro strong, .prose strong { color: #25474b; }
+.tag-row span {
+  background: #dceae6;
+  border-color: #c2d8d0;
+  color: #365f66;
+}
+.button-primary {
+  background: #326c79;
+  box-shadow: 0 8px 17px rgba(38, 87, 92, .15);
+}
+.button-primary:hover { background: #275965; box-shadow: 0 12px 22px rgba(38, 87, 92, .18); }
+.button-outline {
+  background: #eaf1ec;
+  border-color: #becfc8;
+  color: #315f68;
+}
+.button-outline:hover { background: #dcebe5; color: #214c58; }
+/* The single deep focal card anchors the whole top of the page. */
+.hero-finding {
+  background: linear-gradient(145deg, #2c5157, #24444e);
+  box-shadow: 0 18px 43px rgba(31, 67, 63, .13);
+}
+.finding-top { color: #c0d8ce; }
+.finding-question { color: #f2f5ef; }
+.finding-before { color: #c7d8d3; }
+.finding-before strong { color: #ebf0eb; }
+.finding-after, .hero-finding p { color: #d5e7de; }
+.finding-after strong { color: #b1e8cf; }
+.finding-track span { background: #a5c0be; }
+.finding-foot { color: #bad4ca; }
+/* Muted layered cards; never stark white. */
+.metric, .step, .insight-card, .small-figure, .results-panel,
+.figure-details, .results-detail, .supplementary, .table-wrap {
+  background: var(--surface-raised);
+  border-color: var(--stroke);
+  box-shadow: var(--shadow);
+}
+.metric:hover, .step:hover, .insight-card:hover { border-color: #97b6af; }
+.metric-number { color: #325f69; }
+.metric-label, .insight-card p, .step p, .detail-note { color: #59716e; }
+.metric-icon { color: #93b8ad; }
+/* First feature is matte instead of high-contrast white. */
+.opening-feature {
+  background: #edf3ed;
+  border-color: #c8d8ce;
+  box-shadow: var(--shadow);
+}
+.opening-figure { background: #dae6df; }
+.figure-topline, .figure-index { color: #54736d; }
+.opening-copy { background: #edf3ed; }
+.opening-copy > p, .case-item p { color: #536b6a; }
+.opening-copy > p strong, .case-item strong { color: #28484b; }
+.case-item {
+  background: #e3eee7;
+  border-color: #c9dcd2;
+}
+.case-supported .case-dot { background: #3a8a77; }
+.case-unsupported .case-dot { background: #b77b63; }
+.case-supported .case-mark { color: #29745f; }
+.case-unsupported .case-mark { color: #a76a55; }
+.section + .section { border-top-color: #cedbd4; }
+.section-kicker, .micro-label { color: #426e74; }
+/* Neutral figure frames preserve the original scientific illustrations. */
+.image-zoom {
+  background: #eaf0eb;
+  border-color: #cbd8d1;
+}
+.image-zoom:hover { border-color: #8fafaa; box-shadow: 0 11px 25px rgba(31, 68, 59, .1); }
+.zoom-corner { background: rgba(229, 238, 230, .96); border-color: #c4d7cd; color: #346f76; }
+.feature-figure figcaption, .small-figure figcaption { color: #567070; }
+.feature-figure figcaption strong, .small-figure figcaption strong { color: #2e5052; }
+/* Narrative callouts and method diagram */
+.insight-band {
+  background: #dceae5;
+  border-left-color: #6a9f94;
+}
+.insight-band p { color: #365a58; }
+.insight-band strong { color: #26514c; }
+.insight-icon {
+  background: #c2ddd2;
+  color: #2a635c;
+}
+.step-index {
+  background: #d6e6df;
+  color: #336b69;
+}
+.math-strip {
+  background: #dde9e3;
+  border-color: #c6d9ce;
+}
+.math-eyebrow { color: #5b7979; }
+.math-expression { color: #315757; }
+.math-strip-arrow { color: #5e9188; }
+.benchmark-intro, .evaluation-intro {
+  background: #ddeae4;
+  border-color: #c7dad0;
+}
+.benchmark-intro p, .evaluation-explainer p { color: #4e686b; }
+.benchmark-glyph, .domain-chips span, .metric-defs span {
+  background: #eaf2ed;
+  border-color: #c6d8ce;
+  color: #42686b;
+}
+.domain-chips span:hover { border-color: #87b0a5; }
+/* Table reading comfort: a shaded header and lightly striped rows. */
+.table-heading p { color: #627a79; }
+thead th {
+  background: #d7e5de;
+  color: #375b5e;
+}
+td, th { border-bottom-color: #d5dfd8; }
+tbody th { color: #345456; }
+tbody tr:nth-child(even) { background: #eaf0ea; }
+tbody tr:hover td, tbody tr:hover th { background: #dcece4; }
+tfoot th, tfoot td { background: #dae8df; color: #315e5b; }
+/* Expandable supporting figures */
+.figure-details summary, .results-detail summary, .supplementary summary {
+  color: #2f5960;
+}
+.figure-details summary:hover, .results-detail summary:hover, .supplementary summary:hover {
+  background: #e3eee8;
+}
+.figure-details summary small, .results-detail summary small, .supplementary summary span {
+  color: #657b79;
+}
+.detail-chevron, .results-detail summary > span:last-child {
+  border-color: #c0d4cb;
+  color: #3a7875;
+}
+.figure-details > .figure-split, .results-detail-body, .supplementary-content { border-top-color: #d1ded5; }
+/* Results explorer: quieter bars; clear active choice. */
+.chart-explanation, .chart-legend, .bar-value, .chart-caption { color: #586f6d; }
+.chart-explanation strong, .track:has(.adapted) .bar-value { color: #2d706a; }
+.metric-switch { border-bottom-color: #cfded4; }
+.switch-button {
+  background: #e6eee8;
+  border-color: #c8d8cf;
+  color: #4d6b69;
+}
+.switch-button span { color: #638781; }
+.switch-button:hover { border-color: #86afa4; background: #ddeae3; }
+.switch-button.is-active {
+  background: #d0e6da;
+  border-color: #8fb9aa;
+  color: #275f58;
+}
+.switch-button.is-active span { color: #275f58; }
+.baseline-dot, .track .baseline { background: #9db5b2; }
+.adapted-dot { background: #367c76; }
+.track .adapted { background: linear-gradient(90deg, #528f93, #397f70); }
+.bar-label { color: #3a5759; }
+.chart-axis { color: #677e79; }
+.chart-insight {
+  background: #dbeae2;
+  border-color: #b8d5c7;
+  color: #335f56;
+}
+.chart-insight > span { color: #3b836c; }
+.chart-insight.is-warning {
+  background: #ede2d4;
+  border-color: #dcc8b2;
+  color: #7c5941;
+}
+.chart-insight.is-warning > span { color: #ad7648; }
+.results-table .cell-good { background: #d3e7da; color: #236955; }
+/* Last sections and footer fade quietly into the page. */
+.insight-number, .analysis-text em { color: #357779; }
+.site-footer {
+  background: #dce7df;
+  border-top-color: #c6d5cb;
+}
+.footer-inner, .footer-links a { color: #506a68; }
+.footer-name { color: #2a6067; }
+.back-top {
+  background: #376e72;
+  box-shadow: 0 10px 25px rgba(32, 75, 69, .17);
+}
+.back-top:hover { background: #265b60; }
+@media (prefers-reduced-motion: reduce) {
+  .image-zoom:hover, .metric:hover, .step:hover, .insight-card:hover { transform: none; }
+}

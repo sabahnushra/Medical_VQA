@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#e5ede7" name="theme-color"/>
+<meta content="Sabah Nushra" name="author"/>
+<meta content="Knowing When Not to Answer: a multi-domain benchmark and lightweight alignment-based abstention for medical visual question answering. Research project website." name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="Knowing When Not to Answer — Medical VQA" property="og:title"/>
+<meta content="When should a medical vision-language model refuse to answer? Explore a five-domain benchmark and a lightweight alignment-based abstention method." property="og:description"/>
+<meta content="https://sabahnushra.github.io/projects/medical-vqa/assets/intro.webp" property="og:image"/>
+<link href="https://sabahnushra.github.io/projects/medical-vqa/" rel="canonical"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="palette.css" rel="stylesheet"/>
+<title>Knowing When Not to Answer · Sabah Nushra</title>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="header-inner container">
+<a aria-label="Sabah Nushra — homepage" class="site-brand" href="https://sabahnushra.github.io/">Sabah Nushra</a>
+<nav aria-label="Personal website navigation" class="site-links">
+<a href="https://sabahnushra.github.io/#about">About</a>
+<a href="https://sabahnushra.github.io/#research">Research</a>
+<a href="https://sabahnushra.github.io/#projects">Projects</a>
+<a class="header-home" href="https://sabahnushra.github.io/">
+<svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="m15 18-6-6 6-6"></path></svg>
+          Home
+        </a>
+</nav>
+</div>
+<div aria-hidden="true" class="reading-progress" id="reading-progress"></div>
+</header>
+<main id="main">
+<section aria-labelledby="paper-title" class="hero container" id="overview">
+<div class="hero-layout">
+<div class="hero-copy">
+<h1 id="paper-title"><span class="hero-headline">Knowing When Not to Answer<span class="title-colon">.</span></span><span class="hero-deck">A Multi-Domain Benchmark and Lightweight Alignment-Based Abstention for Medical VQA</span></h1>
+<p class="hero-intro">What should a medical AI do when an image doesn't contain the evidence needed to answer? <strong>Sometimes, the safest answer is no answer.</strong></p>
+<div aria-label="Research topics" class="tag-row"><span>Medical VQA</span><span>Visual grounding</span><span>Abstention</span></div>
+<div class="hero-actions">
+<a class="button button-primary" href="assets/paper.pdf" rel="noopener" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6M8 13h8M8 17h8"></path></svg> Read the paper <span aria-hidden="true">↗</span></a>
+<a class="button button-outline" href="#results">Explore the findings <span aria-hidden="true">→</span></a>
+</div>
+</div>
+<aside aria-label="Highlighted result for MRI right abstention" class="hero-finding">
+<div class="finding-top"><span aria-hidden="true" class="finding-orbit">✦</span><span>RESULT SPOTLIGHT</span></div>
+<div class="finding-question">When the image cannot support an answer...</div>
+<div class="finding-before"><span>Original LLaVA-Med</span><strong>8.5%</strong></div>
+<div aria-hidden="true" class="finding-track"><span></span></div>
+<div class="finding-after"><span>With our combined projection</span><strong>93.9<span>%</span></strong></div>
+<p>Right abstention on MRI questions. Better refusal comes with a trade-off in unnecessary abstentions.</p>
+<span class="finding-foot">FROM THE PAPER'S EVALUATION · MRI</span>
+</aside>
+</div>
+<div aria-label="Study at a glance" class="metric-row">
+<div class="metric"><span aria-hidden="true" class="metric-icon">↗</span><div class="metric-number">45,942</div><div class="metric-label">image–question pairs</div></div>
+<div class="metric"><span aria-hidden="true" class="metric-icon">◈</span><div class="metric-number">5</div><div class="metric-label">imaging domains</div></div>
+<div class="metric"><span aria-hidden="true" class="metric-icon">◇</span><div class="metric-number">2.1M</div><div class="metric-label">trainable parameters</div></div>
+<div class="metric"><span aria-hidden="true" class="metric-icon">◎</span><div class="metric-number">9,192</div><div class="metric-label">held-out test pairs</div></div>
+</div>
+<section aria-label="Illustrative medical VQA example" class="opening-feature">
+<figure class="feature-figure opening-figure">
+<div class="figure-topline"><span class="figure-index">FIGURE 01</span><span>Answerable vs. unanswerable</span></div>
+<button aria-label="Enlarge visual question answering example" class="image-zoom" data-alt="Chest X-ray with an answerable question and an unanswerable question" data-image="assets/intro.webp" type="button">
+<img alt="Chest X-ray next to a green answerable question panel and a red unanswerable question panel" fetchpriority="high" height="1023" src="assets/intro.webp" width="1380"/><span aria-hidden="true" class="zoom-corner">↗</span>
+</button>
+</figure>
+<div class="opening-copy">
+<span class="section-kicker">THE CENTRAL IDEA</span>
+<h2>Same image. <em>Different questions.</em></h2>
+<p>A chest X-ray can support one question while providing no evidence for another. An assistant needs to tell the difference <strong>before it answers.</strong></p>
+<div class="case-pair">
+<div class="case-item case-supported"><span class="case-dot"></span><div><strong>Supported by the image</strong><p>Answer using visible evidence.</p></div><span aria-hidden="true" class="case-mark">✓</span></div>
+<div class="case-item case-unsupported"><span class="case-dot"></span><div><strong>Not supported by the image</strong><p>Say “I cannot answer.”</p></div><span aria-hidden="true" class="case-mark">×</span></div>
+</div>
+</div>
+</section>
+</section>
+<section class="section container" id="motivation">
+<div class="section-kicker">THE PROBLEM</div>
+<h2>Getting the answer right is only half the story.</h2>
+<div class="prose prose-wide"><p>Medical vision–language models can sound convincing even when an image does not show what a question asks about. That is a different failure from giving an incorrect answer to a valid question.</p><p>We investigate <strong>image-grounded answerability</strong>: when should a model respond, and when should it acknowledge that the image alone is not enough?</p></div>
+<div class="insight-band">
+<div aria-hidden="true" class="insight-icon">!</div>
+<p><strong>The key distinction:</strong> response accuracy measures whether a model gives the right answer; <strong>answerability awareness</strong> measures whether it should answer the question in the first place.</p>
+</div>
+</section>
+<section class="section container" id="method">
+<div class="section-kicker">OUR APPROACH</div>
+<h2>Filter, align, then decide.</h2>
+<p class="section-lead">Instead of retraining a medical language model, we supply an explicit image–question alignment signal through a small learned projection.</p>
+<figure class="feature-figure figure-large">
+<button aria-label="Enlarge proposed method pipeline" class="image-zoom" data-alt="Overall medical VQA pipeline" data-image="assets/pipeline.webp" type="button">
+<img alt="Architecture showing unanswerable-pair generation, question guardrail, Qwen statement conversion, BioMedCLIP correlation, and projection into the frozen language model" height="1227" loading="lazy" src="assets/pipeline.webp" width="2550"/>
+<span aria-hidden="true" class="zoom-corner">↗</span>
+</button>
+<figcaption><strong>Method overview.</strong> Visually grounded questions become declarative statements; BioMedCLIP measures image–text alignment and a learned projection adds the signal to frozen LLaVA-Med.</figcaption>
+</figure>
+<div class="steps">
+<article class="step">
+<span class="step-index">01</span>
+<h3>Route the question</h3>
+<p>A DistilBERT-based guardrail separates questions needing visual evidence from general, non-visual medical questions. Only image-grounded questions enter the answerability pathway.</p>
+</article>
+<article class="step">
+<span class="step-index">02</span>
+<h3>Make the query alignable</h3>
+<p>Qwen2.5-1.5B-Instruct reformulates the question as a declarative visual statement, matching the caption-like text distribution used to pretrain BioMedCLIP.</p>
+</article>
+<article class="step">
+<span class="step-index">03</span>
+<h3>Inject an abstention prior</h3>
+<p>Element-wise multiplication of normalized BioMedCLIP image and text embeddings produces a 512-dimensional correlation vector, mapped to LLaVA-Med's 4,096-dimensional feature space with a single linear layer.</p>
+</article>
+</div>
+<div class="math-strip">
+<div><span class="math-eyebrow">ALIGNMENT REPRESENTATION</span><div class="math-expression"><i>c</i> = norm(<i>f</i><sub>image</sub>) ⊙ norm(<i>f</i><sub>text</sub>)</div></div>
+<div aria-hidden="true" class="math-strip-arrow">→</div>
+<div><span class="math-eyebrow">LIGHTWEIGHT PROJECTION</span><div class="math-expression">512 dimensions <span class="math-arrow">→</span> 4,096 dimensions</div></div>
+</div>
+</section>
+<section class="section container" id="benchmark">
+<div class="section-kicker">THE BENCHMARK</div>
+<h2>One dataset. Five kinds of medical images.</h2>
+<p class="section-lead">A controlled, balanced benchmark pairs questions that the image supports with questions deliberately mismatched to that image.</p>
+<div class="benchmark-intro"><div><span class="micro-label">HOW NEGATIVES ARE MADE</span><p>Start with a real image and its valid question. Then transfer a question from a different image to create a visually unsupported pair.</p></div><span aria-hidden="true" class="benchmark-glyph">image + question <b>⇄</b> mismatched question</span></div><div aria-label="Medical domains" class="domain-chips"><span>X-ray</span><span>CT</span><span>MRI</span><span>Histology</span><span>Gross pathology</span></div>
+<figure class="feature-figure figure-large">
+<button aria-label="Enlarge benchmark examples" class="image-zoom" data-alt="Five-domain medical visual question answering samples" data-image="assets/examples.webp" type="button">
+<img alt="Two rows of example medical images from X-ray, CT, MRI, histology and pathology, showing answerable questions and mismatched source questions" height="934" loading="lazy" src="assets/examples.webp" width="2945"/>
+<span aria-hidden="true" class="zoom-corner">↗</span>
+</button>
+<figcaption><strong>Benchmark construction.</strong> The top row shows answerable image–question pairs. Questions from distinct source images (bottom row) are transferred to the top-row images to form unanswerable cases.</figcaption>
+</figure>
+<div class="table-heading"><h3>Dataset composition</h3><p>Equal answerable and unanswerable counts in each split</p></div>
+<div class="table-wrap">
+<table class="data-table dataset-table">
+<thead><tr><th scope="col">Domain</th><th scope="col">Training pairs</th><th scope="col">Test pairs</th><th scope="col">Total pairs</th></tr></thead>
+<tbody>
+<tr><th scope="row">X-ray</th><td>3,078</td><td>770</td><td>3,848</td></tr>
+<tr><th scope="row">CT</th><td>12,800</td><td>3,202</td><td>16,002</td></tr>
+<tr><th scope="row">MRI</th><td>9,920</td><td>2,482</td><td>12,402</td></tr>
+<tr><th scope="row">Histology</th><td>9,832</td><td>2,458</td><td>12,290</td></tr>
+<tr><th scope="row">Gross pathology</th><td>1,120</td><td>280</td><td>1,400</td></tr>
+</tbody>
+<tfoot><tr><th scope="row">Total</th><td>36,750</td><td>9,192</td><td>45,942</td></tr></tfoot>
+</table>
+</div>
+<details class="figure-details"><summary><span><b>Explore the negative-sampling checks</b><small>Beta(2, 5) sampling and text-only shortcut analysis</small></span><span aria-hidden="true" class="detail-chevron">+</span></summary><div class="figure-split figure-split-equal">
+<figure class="small-figure">
+<button aria-label="Enlarge beta sampling plot" class="image-zoom" data-alt="Beta distribution for negative-pair sampling" data-image="assets/beta_sampling.webp" type="button">
+<img alt="Beta 2,5 probability density emphasizing lower-ranked similarity samples" height="795" loading="lazy" src="assets/beta_sampling.webp" width="1216"/><span aria-hidden="true" class="zoom-corner">↗</span>
+</button>
+<figcaption><strong>Controlled negatives.</strong> Beta(2, 5) sampling favors lower-similarity mismatches without always selecting the most trivial negative.</figcaption>
+</figure>
+<figure class="small-figure">
+<button aria-label="Enlarge sampling bias plot" class="image-zoom" data-alt="Textual bias comparison across different medical domains" data-image="assets/sampling_bias.webp" type="button">
+<img alt="Classification accuracy comparison for beta-sampled and lowest-similarity negative pairs across domains" height="928" loading="lazy" src="assets/sampling_bias.webp" width="1108"/><span aria-hidden="true" class="zoom-corner">↗</span>
+</button>
+<figcaption><strong>Avoiding shortcuts.</strong> We examine whether negative-sampling choices introduce linguistic signals that could make the task easier without visual grounding.</figcaption>
+</figure>
+</div></details>
+<p class="detail-note">The study splits by image to reduce leakage between train and test, and uses the held-out set for all reported evaluations. Automatically constructed unanswerable pairs are not exhaustively manually verified.</p>
+</section>
+<section class="section container" id="results">
+<div class="section-kicker">EXPERIMENTAL RESULTS</div>
+<h2>Much better at knowing when to abstain.</h2>
+<p class="section-lead">The combined projection is trained across all five domains. Below, <strong>Right Abstention (RA)</strong> measures the percentage of unanswerable questions correctly rejected; higher is better.</p>
+<div class="evaluation-intro">
+<div class="evaluation-explainer">
+<h3>How do we score abstention?</h3>
+<p>We distinguish <strong>Correct Answers (CA)</strong> from <strong>Wrong Abstentions (WA)</strong> on answerable questions, and <strong>Right Abstentions (RA)</strong> from failures to abstain on unanswerable ones. A model should maximize CA and RA without rejecting legitimate questions unnecessarily.</p>
+<div class="metric-defs"><span><b>CA</b> correct answer</span><span><b>RA</b> right abstention</span><span><b>WA</b> wrong abstention</span></div></div>
+<figure class="small-figure evaluation-figure">
+<button aria-label="Enlarge answerability evaluation outcomes" class="image-zoom" data-alt="Medical VQA evaluation outcomes diagram" data-image="assets/evaluation.webp" type="button">
+<img alt="Decision matrix separating correct and incorrect answers, wrong abstention, right abstention, and failure to abstain" height="410" loading="lazy" src="assets/evaluation.webp" width="1089"/><span aria-hidden="true" class="zoom-corner">↗</span>
+</button>
+<figcaption><strong>Evaluation protocol.</strong> Outcomes for answerable and unanswerable questions.</figcaption>
+</figure>
+</div>
+<div class="results-panel" id="results-explorer">
+<div class="results-panel-top"><div><span class="micro-label">EXPLORE THE RESULTS</span><h3 id="chart-title">Right abstention</h3><p class="chart-explanation" id="chart-explanation">On unanswerable questions, how often does a model correctly refuse? <strong>Higher is better.</strong></p></div></div>
+<div aria-label="Choose evaluation metric" class="metric-switch" role="group">
+<button aria-pressed="true" class="switch-button is-active" data-metric="ra" type="button">Right abstention <span>↑</span></button>
+<button aria-pressed="false" class="switch-button" data-metric="wa" type="button">Wrong abstention <span>↓</span></button>
+<button aria-pressed="false" class="switch-button" data-metric="ca" type="button">Correct answer <span>↑</span></button>
+</div>
+<div class="chart-legend"><span><i class="legend-dot baseline-dot"></i> Original LLaVA-Med</span><span><i class="legend-dot adapted-dot"></i> Combined projection</span></div>
+<div aria-live="polite" class="chart-body" id="comparison-chart">
+<div class="bar-row" data-domain="X-ray"><span class="bar-label">X-ray</span><div class="bar-tracks"><div class="track"><div class="fill baseline" style="width:12.7%"></div><span class="bar-value">12.7%</span></div><div class="track"><div class="fill adapted" style="width:87.5%"></div><span class="bar-value">87.5%</span></div></div></div>
+<div class="bar-row" data-domain="CT"><span class="bar-label">CT</span><div class="bar-tracks"><div class="track"><div class="fill baseline" style="width:10.6%"></div><span class="bar-value">10.6%</span></div><div class="track"><div class="fill adapted" style="width:93.3%"></div><span class="bar-value">93.3%</span></div></div></div>
+<div class="bar-row" data-domain="MRI"><span class="bar-label">MRI</span><div class="bar-tracks"><div class="track"><div class="fill baseline" style="width:8.5%"></div><span class="bar-value">8.5%</span></div><div class="track"><div class="fill adapted" style="width:93.9%"></div><span class="bar-value">93.9%</span></div></div></div>
+<div class="bar-row" data-domain="Histology"><span class="bar-label">Histology</span><div class="bar-tracks"><div class="track"><div class="fill baseline" style="width:8.7%"></div><span class="bar-value">8.7%</span></div><div class="track"><div class="fill adapted" style="width:92.9%"></div><span class="bar-value">92.9%</span></div></div></div>
+<div class="bar-row" data-domain="Gross pathology"><span class="bar-label">Gross pathology</span><div class="bar-tracks"><div class="track"><div class="fill baseline" style="width:14.3%"></div><span class="bar-value">14.3%</span></div><div class="track"><div class="fill adapted" style="width:69.3%"></div><span class="bar-value">69.3%</span></div></div></div>
+</div>
+<div aria-hidden="true" class="chart-axis"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+<div class="chart-insight" id="chart-insight"><span aria-hidden="true">↗</span><p><strong>The key result.</strong> On four of five modalities, right abstention rises to 87.5–93.9% with the combined projection.</p></div>
+<p class="chart-caption">All values are percentages. Data: Table 2 of the manuscript.</p>
+</div>
+
+
+<details class="results-detail"><summary><span><b>See the complete numerical results</b><small>Full comparison of CA, WA and RA for each domain</small></span><span aria-hidden="true">+</span></summary><div class="results-detail-body"><div class="table-heading"><h3>The trade-off matters</h3><p>CA: correct answer · WA: wrong abstention · RA: right abstention</p></div><div class="table-wrap">
+<table class="data-table results-table">
+<thead><tr><th rowspan="2" scope="col">Domain</th><th colspan="3" scope="colgroup">Original LLaVA-Med</th><th colspan="3" scope="colgroup">Combined projection</th></tr><tr><th scope="col">CA ↑</th><th scope="col">WA ↓</th><th scope="col">RA ↑</th><th scope="col">CA ↑</th><th scope="col">WA ↓</th><th scope="col">RA ↑</th></tr></thead>
+<tbody><tr><th scope="row">X-ray</th><td>40.0</td><td>2.1</td><td>12.7</td><td>36.1</td><td>19.2</td><td class="cell-good">87.5</td></tr><tr><th scope="row">CT</th><td>28.1</td><td>1.5</td><td>10.6</td><td>26.2</td><td>13.2</td><td class="cell-good">93.3</td></tr><tr><th scope="row">MRI</th><td>32.2</td><td>3.0</td><td>8.5</td><td>27.9</td><td>12.0</td><td class="cell-good">93.9</td></tr><tr><th scope="row">Histology</th><td>28.3</td><td>2.8</td><td>8.7</td><td>22.1</td><td>17.6</td><td class="cell-good">92.9</td></tr><tr><th scope="row">Gross pathology</th><td>30.7</td><td>1.4</td><td>14.3</td><td>32.1</td><td>7.1</td><td class="cell-good">69.3</td></tr></tbody>
+</table>
+</div><p class="detail-note"><strong>Important:</strong> Better rejection also introduces wrong abstentions on some answerable questions. Our results report both effects rather than treating abstention as a free gain.</p></div></details>
+
+</section>
+<section class="section container" id="analysis">
+<div class="section-kicker">WHAT THE EXPERIMENTS REVEAL</div>
+<h2>Answerability is not the same as answer accuracy.</h2>
+<div class="insight-grid">
+<article class="insight-card"><div class="insight-number">01</div><h3>Domain-specific features don't transfer cleanly</h3><p>Projection layers trained on a single modality are often unreliable on other modalities. Even for the same answerability task, BioMedCLIP correlations have distinct domain distributions.</p></article>
+<article class="insight-card"><div class="insight-number">02</div><h3>Stronger VLMs can still over-answer</h3><p>General-purpose VLMs generally obtain higher correct-answer scores, but their right-abstention rates reach only 49.2% at best in the reported evaluation.</p></article>
+<article class="insight-card"><div class="insight-number">03</div><h3>Failure cases have recognizable patterns</h3><p>The combined model fails to abstain on 362 of 4,596 unanswerable test questions, often involving anatomy, pathology identification, and spatial localization.</p></article>
+</div>
+<div class="table-heading"><h3>Looking inside the alignment space</h3><p>t-SNE of the 512-dimensional BioMedCLIP correlation signal</p></div>
+<div class="figure-split tsne-pair">
+<figure class="small-figure">
+<button aria-label="Enlarge answerable t-SNE plot" class="image-zoom" data-alt="t-SNE plot of answerable question-image pairs by domain" data-image="assets/tsne_answerable.webp" type="button"><img alt="t-SNE plot showing modality-separated groups for answerable pairs" height="1307" loading="lazy" src="assets/tsne_answerable.webp" width="1685"/><span aria-hidden="true" class="zoom-corner">↗</span></button><figcaption><strong>(a) Answerable pairs.</strong> Distinct clusters emerge for each imaging domain.</figcaption>
+</figure>
+<figure class="small-figure">
+<button aria-label="Enlarge unanswerable t-SNE plot" class="image-zoom" data-alt="t-SNE plot of unanswerable question-image pairs by domain" data-image="assets/tsne_unanswerable.webp" type="button"><img alt="t-SNE plot showing modality-separated groups for unanswerable pairs" height="1307" loading="lazy" src="assets/tsne_unanswerable.webp" width="1685"/><span aria-hidden="true" class="zoom-corner">↗</span></button><figcaption><strong>(b) Unanswerable pairs.</strong> Modality structure persists even for visually mismatched inputs.</figcaption>
+</figure>
+</div>
+<p class="detail-note">The clusters explain why a projection trained with one modality's alignment signal need not generalize to another. Joint training exposes the model to a wider signal distribution.</p>
+<details class="supplementary">
+<summary>Additional diagnostic figures <span>Guardrail ROC · Precision–recall · Domain similarity</span></summary>
+<div class="supplementary-content">
+<p>Additional visualizations from the study's source files examine question-routing performance and similarity between correlation signals from different imaging domains.</p>
+<div class="figure-split">
+<figure class="small-figure"><button aria-label="Enlarge guardrail ROC" class="image-zoom" data-alt="Guardrail question filtering ROC curves" data-image="assets/guardrail_roc.webp" type="button"><img alt="ROC curves for the guardrail visual question quality classifier across the five domains and combined model" height="857" loading="lazy" src="assets/guardrail_roc.webp" width="1063"/><span aria-hidden="true" class="zoom-corner">↗</span></button><figcaption><strong>Guardrail ROC.</strong> Evaluating the visual vs. non-visual question router.</figcaption></figure>
+<figure class="small-figure"><button aria-label="Enlarge domain signal similarity heatmap" class="image-zoom" data-alt="Inter-domain signal centroid similarities" data-image="assets/domain_similarity.webp" type="button"><img alt="Heatmap of similarities between unanswerable BioMedCLIP correlation signal centroids for different imaging domains" height="817" loading="lazy" src="assets/domain_similarity.webp" width="921"/><span aria-hidden="true" class="zoom-corner">↗</span></button><figcaption><strong>Inter-domain similarity.</strong> A complementary look at how domain alignment signals differ.</figcaption></figure>
+</div>
+<figure class="feature-figure additional-pr"><button aria-label="Enlarge guardrail precision recall figures" class="image-zoom" data-alt="Guardrail precision recall performance curves" data-image="assets/guardrail_pr.webp" type="button"><img alt="Precision, recall, and F1 plots for the Guardrail question-routing classifier in X-ray, CT, MRI, histology, pathology and combined settings" height="1127" loading="lazy" src="assets/guardrail_pr.webp" width="2104"/><span aria-hidden="true" class="zoom-corner">↗</span></button><figcaption><strong>Precision–recall diagnostics.</strong> Guardrail behavior across domains and in combined training.</figcaption></figure>
+</div>
+</details>
+<div class="analysis-bottom">
+<div class="analysis-text"><h3>What the remaining failures look like</h3><p>Of 4,596 unanswerable test pairs, 362 produced a response instead of abstention. Common words in those failures include <em>mass</em>, <em>tumor</em>, <em>lesion</em>, <em>where</em>, and <em>located</em>—suggesting difficulty when the question asks for a pathological finding or an anatomical position that is not established by the image.</p><p>The figure breaks down these recurring content words by medical modality.</p></div>
+<figure class="small-figure failure-figure"><button aria-label="Enlarge failure analysis chart" class="image-zoom" data-alt="Top content words from failure-to-abstain cases" data-image="assets/failures.webp" type="button"><img alt="Stacked bar chart showing frequently occurring terms in incorrect non-abstaining responses across domains" height="1147" loading="lazy" src="assets/failures.webp" width="1154"/><span aria-hidden="true" class="zoom-corner">↗</span></button><figcaption><strong>Failure to abstain.</strong> Frequency of common question words across the five domains.</figcaption></figure>
+</div>
+</section>
+<section class="section container" id="limitations">
+<div class="section-kicker">LIMITATIONS &amp; NEXT STEPS</div>
+<h2>What still needs to improve.</h2>
+<div class="prose prose-wide"><p>Constructed negative pairs are generated automatically from different images. Although a random subset was inspected, not every pair has been manually verified; a few transplanted questions may still be answerable from their new image. The evaluation also relies on language models for some filtering and judging decisions, and the images come from biomedical publications rather than necessarily representing raw clinical scans.</p><p>We evaluate the learned projection with LLaVA-Med. The adaptation raises appropriate abstention substantially, but can also reject some valid questions. Future work should improve fine-grained anatomical alignment, test transfer to other medical VLMs, and better balance right abstention against unnecessary refusal.</p></div>
+<div class="insight-band limit-band"><div aria-hidden="true" class="insight-icon">→</div><p><strong>The direction forward:</strong> improve the alignment signal so models can identify unsupported anatomy or localization claims while preserving accurate answers to genuinely answerable questions.</p></div>
+</section>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><div><a class="footer-name" href="https://sabahnushra.github.io/">Sabah Nushra</a><span> · Research in trustworthy AI and multimodal evaluation</span></div><div class="footer-links"><a href="https://sabahnushra.github.io/">Home</a><a href="https://sabahnushra.github.io/#research">Research</a><a href="#overview">Back to top ↑</a></div></div></footer>
+<button aria-label="Back to top" class="back-top" id="back-top" title="Back to top" type="button">↑</button>
+<dialog aria-label="Enlarged research figure" class="lightbox" id="figure-lightbox"><div class="lightbox-shell"><button aria-label="Close enlarged figure" class="lightbox-close" id="close-lightbox" title="Close (Esc)">×</button><img alt="" id="lightbox-image" src=""/></div></dialog>
+<script defer="" src="script.js"></script>
+</body>
+</html>
